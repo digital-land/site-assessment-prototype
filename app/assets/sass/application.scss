@@ -4,3 +4,10 @@
 // 
 
 // Add extra styles here
+
+.wide-container {
+  max-width: 1200px;
+  @include govuk-responsive-margin(6, "left");
+  @include govuk-responsive-margin(6, "right");
+}
+

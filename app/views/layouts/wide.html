@@ -1,0 +1,72 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% set containerClasses = "govuk-width-container wide-container" %}
+
+{% block header %}
+  {{ govukHeader({
+    homepageUrl: "/",
+    serviceName: serviceName if not useServiceNavigation,
+    serviceUrl: serviceUrl if not useServiceNavigation,
+    containerClasses: containerClasses
+  }) }}
+  {% if useServiceNavigation %}
+    <section aria-label="Service information" class="govuk-service-navigation"
+  data-module="govuk-service-navigation">
+  <div class="{{ containerClasses }}">
+    <div class="govuk-service-navigation__container">
+      <span class="govuk-service-navigation__service-name">
+        <a href="{{ serviceUrl }}" class="govuk-service-navigation__link">
+          {{ serviceName }}
+        </a>
+      </span>
+    </div>
+  </div>
+</section>
+  {% endif %}
+{% endblock %}
+
+{% if (GOVUKPrototypeKit.isDevelopment) %}
+  {% set footerItems = [
+    {
+      href: "/manage-prototype",
+      text: "Manage your prototype"
+    }, {
+      href: "/manage-prototype/clear-data",
+      text: "Clear data"
+    }
+  ] %}
+{% else %}
+  {% set footerItems = [
+    {
+      href: "/manage-prototype/clear-data",
+      text: "Clear data"
+    }
+  ] %}
+{% endif %}
+
+{# 
+  Because the macro is used inside `set` rather than a `block`
+  `govukFooter` needs to be explicitly imported
+#}
+{% from 'govuk/components/footer/macro.njk' import govukFooter %}
+{% set govukFooterHtml %}
+  {{ govukFooter({
+    meta: {
+      items: footerItems,
+      visuallyHiddenTitle: "Footer links"
+    },
+    containerClasses: containerClasses
+  }) }}
+{% endset %}
+
+{# Override only the GOV.UK Footer component for GOV.UK Frontend >=6.0.0 #}
+{% block govukFooter %}{{govukFooterHtml | safe}}{% endblock %}
+
+{% block footer %}
+  {{ super() }}
+{% endblock %}

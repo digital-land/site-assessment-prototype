@@ -1,0 +1,193 @@
+{% extends "layouts/wide.html" %}
+
+{% set pageName="Home" %}
+{% set mainNavActive = "view-sites" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+    <h1 class="govuk-heading-l">4 new submissions</h1>
+
+
+  <!-- sub nav-->
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/view-sites",
+      text: "Sites for sifting",
+      active: true
+
+    },
+    {
+      href: "/valid-sites",
+      text: "Valid sites"
+    },
+    {
+      href: "/invalid-sites",
+      text: "Invalid sites"
+    },
+
+     {
+      href: "/all-stes",
+      text: "All sites"
+    }
+  ]
+}) }}
+
+<p></p>
+    
+    <!-- summary card 1-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"/edit-boundary\" class=\"govuk-link\">72 Guild street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date received"
+      },
+      value: {
+        html: "4 February 2026"
+      }
+    },
+    {
+      key: {
+        text: "Hard constraints"
+      },
+      value: {
+        html: "Yes"
+      }
+    },
+    {
+      key: {
+        text: "Submitted by"
+      },
+      value: {
+        html: "Victoria Sponge"
+      }
+    }
+  ]
+}) }}
+ 
+  <!-- summary card 2-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">99 Madeupity Street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date received"
+      },
+      value: {
+        html: "24 January 2026"
+      }
+    },
+    {
+      key: {
+        text: "Hard constraints"
+      },
+      value: {
+        html: "Yes"
+      }
+    },
+    {
+      key: {
+        text: "Submitted by"
+      },
+      value: {
+        html: "Nalini P Hendrix"
+      }
+    }
+  ]
+}) }}
+
+  <!-- summary card 3-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">1 Really not real road, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date received"
+      },
+      value: {
+        html: "23 January 2026"
+      }
+    },
+    {
+      key: {
+        text: "Hard constraints"
+      },
+      value: {
+        html: "No"
+      }
+    },
+    {
+      key: {
+        text: "Submitted by"
+      },
+      value: {
+        html: "Jon Doe"
+      }
+    }
+  ]
+}) }}
+
+
+  <!-- summary card 4-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">4 Reality street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date received"
+      },
+      value: {
+        html: "21 January 2026"
+      }
+    },
+    {
+      key: {
+        text: "Hard constraints"
+      },
+      value: {
+        html: "Yes"
+      }
+    },
+    {
+      key: {
+        text: "Submitted by"
+      },
+      value: {
+        html: "Gari Baldi"
+      }
+    }
+  ]
+}) }}
+
+
+
+</div>
+
+{% endblock %}

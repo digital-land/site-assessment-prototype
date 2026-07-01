@@ -1,0 +1,173 @@
+{% extends "layouts/wide.html" %}
+
+{% set pageName="Home" %}
+{% set mainNavActive = "view-sites" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+    <h1 class="govuk-heading-l">Invalid sites</h1>
+
+
+  <!-- sub nav-->
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/view-sites",
+      text: "Sites for sifting"
+
+    },
+    {
+      href: "/valid-sites",
+      text: "Valid sites"
+    },
+    {
+      href: "/invalid-sites",
+      text: "Invalid sites",
+      active: true
+    },
+
+     {
+      href: "/all-stes",
+      text: "All sites"
+    }
+  ]
+}) }}
+
+<p></p>
+
+<!-- map image-->
+ <img src="/public/Valid-sites-image.png" alt="Map of sites" width = "790"/>
+    
+ <p>  </p>
+ 
+
+    <!-- summary card 1-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">72 Guild street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date assessed"
+      },
+      value: {
+        text: "24 February 2026"
+      }
+    },
+    {
+      key: {
+        text: "Assessed by"
+      },
+      value: {
+        html: "Nalini P Hendrix"
+      }
+    
+    }
+  ]
+}) }}
+ 
+  <!-- summary card 2-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">99 Madeupity Street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date assessed"
+      },
+      value: {
+          text: "20 February 2026"
+      }
+    },
+    {
+      key: {
+        text: "Assessed by"
+      },
+      value: {
+        html: "Victoria Sponge"
+      }
+    
+    }
+  ]
+}) }}
+
+  <!-- summary card 3-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">1 Really not real road, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date assessed"
+      },
+      value: {
+           text: "16 February 2026"
+      }
+    },
+    {
+      key: {
+        text: "Assessed by"
+      },
+      value: {
+        html: "Victoria Sponge"
+      }
+    
+    
+    }
+  ]
+}) }}
+
+
+  <!-- summary card 4-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">4 Reality street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Date assessed"
+      },
+      value: {
+        text: "10 February 2026"
+      }
+    },
+    {
+      key: {
+        text: "Assessed by"
+      },
+      value: {
+       text: "Nalini P Hendrix"
+      }
+    
+    
+    }
+  ]
+}) }}
+
+
+
+</div>
+
+{% endblock %}

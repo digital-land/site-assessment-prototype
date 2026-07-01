@@ -1,0 +1,173 @@
+{% extends "layouts/wide.html" %}
+
+{% set pageName="Home" %}
+{% set mainNavActive = "view-sites" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+    <h1 class="govuk-heading-l">Valid sites</h1>
+
+
+  <!-- sub nav-->
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/view-sites",
+      text: "Sites for sifting"
+
+    },
+    {
+      href: "/valid-sites",
+      text: "Valid sites",
+      active: true
+    },
+    {
+      href: "/invalid-sites",
+      text: "Invalid sites"
+    },
+
+     {
+      href: "/all-stes",
+      text: "All sites"
+    }
+  ]
+}) }}
+
+<p></p>
+
+<!-- map image-->
+ <img src="/public/Valid-sites-image.png" alt="Map of sites" width = "790"/>
+    
+ <p>  </p>
+ 
+
+    <!-- summary card 1-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">72 Guild street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Assessment status"
+      },
+      value: {
+        html: "<strong class=\"govuk-tag\">Completed</strong>"
+      }
+    },
+    {
+      key: {
+        text: "Category"
+      },
+      value: {
+        html: "Employment-led mixed use"
+      }
+    
+    }
+  ]
+}) }}
+ 
+  <!-- summary card 2-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">99 Madeupity Street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Assessment status"
+      },
+      value: {
+          html: "<strong class=\"govuk-tag\">Completed</strong>"
+      }
+    },
+    {
+      key: {
+        text: "Category"
+      },
+      value: {
+        html: "Somwherefield"
+      }
+    
+    }
+  ]
+}) }}
+
+  <!-- summary card 3-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">1 Really not real road, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Assessment status"
+      },
+      value: {
+           html: "<strong class=\"govuk-tag govuk-tag--grey\">Incomplete</strong>"
+      }
+    },
+    {
+      key: {
+        text: "Category"
+      },
+      value: {
+        html: "New settlements"
+      }
+    
+    
+    }
+  ]
+}) }}
+
+
+  <!-- summary card 4-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{{ govukSummaryList({
+  card: {
+    title: {
+      html: "<a href=\"#\" class=\"govuk-link\">4 Reality street, London</a>"
+    }
+  },
+  rows: [
+    {
+      key: {
+        text: "Assessment status"
+      },
+      value: {
+        html: "<strong class=\"govuk-tag govuk-tag--grey\">Incomplete</strong>"
+      }
+    },
+    {
+      key: {
+        text: "Category"
+      },
+      value: {
+        html: "Industrial"
+      }
+    
+    
+    }
+  ]
+}) }}
+
+
+
+</div>
+
+{% endblock %}

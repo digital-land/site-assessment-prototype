@@ -1,0 +1,198 @@
+{% extends "layouts/wide.html" %}
+
+{% set pageName="Home" %}
+{% set mainNavActive = "view-sites" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    
+    <span class="govuk-caption-l">Site information</span>
+<h1 class="govuk-heading-l">72 Guild street, London</h1>
+
+
+  <!-- sub nav-->
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/edit-boundary",
+      text: "Edit boundary"
+
+    },
+    {
+      href: "/site-information",
+      text: "Site information",
+      active: true
+      
+    },
+    {
+      href: "/high-impact-constraints",
+      text: "High-impact constraints"
+    }
+
+  
+  ]
+}) }}
+
+<p></p>
+
+<!-- UPDATE THIS map image-->
+<img src="/public/edit-boundary-image.png" alt="Map of sites" width = "790"/>
+    
+
+ <h2 class="govuk-heading-m">Submitters details</h2>
+
+ <div class="govuk-grid-row">
+  <div class="govuk-grid-column-one-half">
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      
+      rows: [
+        [
+          {
+            text: "Description"
+          },
+          {
+            text: "Charity"
+          }
+        ],
+        [
+          {
+            text: "Site connection"
+          },
+          {
+            text: "Landowner"
+          }
+        ],
+        [
+          {
+            text: "Contact details"
+          },
+          {
+            html: "John Doe<br>00000000<br>landowner@example.com"
+          }
+        ]
+      ]
+    }) }}
+  </div>
+
+  <div class="govuk-grid-column-one-half">
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: true,
+      
+      rows: [
+        [
+          {
+            text: "Description"
+          },
+          {
+            text: "Charity"
+          }
+        ],
+        [
+          {
+            text: "Site connection"
+          },
+          {
+            text: "Landowner"
+          }
+        ],
+        [
+          {
+            text: "Contact details"
+          },
+          {
+            html: "John Doe<br>00000000<br>landowner@example.com"
+          }
+        ]
+      ]
+    }) }}
+  </div>
+</div>
+
+ <p>  </p>
+ <h2 class="govuk-heading-m">Site address</h2>
+
+ <p class="govuk-body">72 Guild street<br>London<br>N1 2N0</p>
+
+ <p class="govuk-body">
+  <a href="#" class="govuk-link">Edit the address</a>
+</p>
+ 
+
+<h2 class="govuk-heading-m">Site reference</h2>
+  <!-- text input--> 
+ {{ govukInput({
+  label: {
+    
+  },
+  classes: "govuk-!-width-one-quarter",
+  id: "one-quarter",
+  name: "oneQuarter"
+}) }}
+ 
+
+<p> </p>
+
+<h2 class="govuk-heading-m">Summary of site information</h2>
+
+ <!-- text area--> 
+  {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+
+{{ govukTextarea({
+  name: "moreDetail",
+  id: "more-detail",
+  label: {
+    
+  }
+}) }}
+
+ <!-- checkboxes--> 
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+<p class="govuk-body">Categories help you to group sites for assessment. <a href="#" class="govuk-link">Create a new category</a></p>
+
+{{ govukCheckboxes({
+  name: "Category selection",
+  
+ 
+  items: [
+    {
+      value: "Somewherefield",
+      text: "Somewherefield"
+    },
+    {
+      value: "Employment-led mixed use",
+      text: "Employment-led mixed use"
+    },
+    {
+      value: "Industrial",
+      text: "Industrial"
+    }
+  ]
+}) }}
+
+
+{% from "govuk/components/button/macro.njk" import govukButton %}
+
+<div class="govuk-button-group">
+  {{ govukButton({
+    text: "Save"
+  }) }}
+</div>
+
+<a href="#" class="govuk-link">Cancel</a>
+
+</div>
+
+{% endblock %}

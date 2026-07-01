@@ -1,0 +1,68 @@
+{% extends "layouts/wide.html" %}
+
+{% set pageName="Home" %}
+{% set mainNavActive = "view-sites" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    
+    <span class="govuk-caption-l">Edit boundary</span>
+<h1 class="govuk-heading-l">72 Guild street, London</h1>
+
+
+  <!-- sub nav-->
+{% from "govuk/components/service-navigation/macro.njk" import govukServiceNavigation %}
+
+{{ govukServiceNavigation({
+  navigation: [
+    {
+      href: "/view-sites",
+      text: "Edit boundary",
+      active: true
+
+    },
+    {
+      href: "/site-information",
+      text: "Site information"
+      
+    },
+    {
+      href: "/high-impact-constraints",
+      text: "High-impact constraints"
+    }
+
+  
+  ]
+}) }}
+
+<p></p>
+
+<!-- map image-->
+<img src="/public/edit-boundary-image.png" alt="Map of sites" width = "790"/>
+    
+ <p>  </p>
+ 
+
+ <!-- Detail-->
+   {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+{% call govukDetails({
+  summaryText: "How to redraw the boundary"
+}) %}
+  blah
+{% endcall %}
+   
+ 
+ 
+  
+
+
+
+
+</div>
+
+{% endblock %}

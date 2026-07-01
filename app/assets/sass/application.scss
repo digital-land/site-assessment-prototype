@@ -11,3 +11,25 @@
   @include govuk-responsive-margin(6, "right");
 }
 
+.govuk-service-navigation .govuk-width-container {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 30px !important;
+  padding-right: 0 !important;
+  max-width: 1200px !important;
+}
+
+.govuk-service-navigation {
+  background: none !important;
+  border-bottom: none !important;
+  padding-left: 0px !important;
+  border-top: 1px solid #b1b4b6 !important;
+  border-bottom: 1px solid #b1b4b6 !important;
+}
+
+.govuk-service-navigation .govuk-service-navigation__container {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
